@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 var cors = require('cors');
+const express = require('express');
 const port = 8000;
 
 let users;
@@ -39,7 +40,7 @@ app.get('/read/usernames', (req, res) => {
 
 app.get('/read/username/:username', (req, res) => {
   const username = req.params.username;
-  const user = req.users.find(user => user.username === username);
+  const user = users.find(user => user.username === username);
   if (user) {
     res.send(user.email);
   } else {
